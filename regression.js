@@ -1,5 +1,5 @@
 //Tensorflow model for regression fitting
-import * as tf from '@tensorflow/tfjs';
+const tf = require('@tensorflow/tfjs');
 
 const a = tf.variable(tf.scalar(Math.random()));
 const b = tf.variable(tf.scalar(Math.random()));
@@ -16,7 +16,7 @@ function predict(x) {
   });
 }
 
-console.log(predict(1));
+console.log(predict(tf.scalar(10)));
 
 function loss(predicitons,labels) {
   const meanSquaredError = predictions.sub(label).square().mean();
